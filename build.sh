@@ -1,1 +1,2 @@
-npx tsc index.ts
+npx tsc
+node index.js
