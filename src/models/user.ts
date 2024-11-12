@@ -1,23 +1,19 @@
 import mongoose, { Schema, Model, Document } from 'mongoose';
 
 type UserDocument = Document & {
-  fullName: string;
   email: string;
   password: string;
+  socketId: string;
 };
 
 type UserInput = {
-  fullName: UserDocument['fullName'];
   email: UserDocument['email'];
   password: UserDocument['password'];
+  socketId: UserDocument['socketId'];
 };
 
 const usersSchema = new Schema(
   {
-    fullName: {
-      type: Schema.Types.String,
-      required: true,
-    },
     email: {
       type: Schema.Types.String,
       required: true,
@@ -26,6 +22,10 @@ const usersSchema = new Schema(
     password: {
       type: Schema.Types.String,
       required: true,
+    },
+    socketId: {
+      type: Schema.Types.String,
+      unique: true,
     },
   },
   {
