@@ -1,4 +1,4 @@
-import mongoose, { Schema, Model, Document } from 'mongoose';
+import mongoose, { Schema, Model, Document } from "mongoose";
 
 type UserDocument = Document & {
   email: string;
@@ -7,9 +7,9 @@ type UserDocument = Document & {
 };
 
 type UserInput = {
-  email: UserDocument['email'];
-  password: UserDocument['password'];
-  socketId: UserDocument['socketId'];
+  email: UserDocument["email"];
+  password: UserDocument["password"];
+  socketId: UserDocument["socketId"];
 };
 
 const usersSchema = new Schema(
@@ -29,11 +29,14 @@ const usersSchema = new Schema(
     },
   },
   {
-    collection: 'users',
+    collection: "users",
     timestamps: true,
   },
 );
 
-const User: Model<UserDocument> = mongoose.model<UserDocument>('User', usersSchema);
+const User: Model<UserDocument> = mongoose.model<UserDocument>(
+  "User",
+  usersSchema,
+);
 
 export { User, UserInput, UserDocument };
