@@ -8,7 +8,7 @@ export const signup = async (req: Request, res: Response) => {
   const isExist = await user.findOne({ username });
   console.log(isExist);
   if (isExist !== null) {
-    res.status(400).send("Username already exist");
+    res.status(409).send("Username already exist");
   } else {
 	  const encryptPassword = await bcrypt.hash(password, 10);
 	  console.log(password);
