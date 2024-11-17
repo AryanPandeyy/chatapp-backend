@@ -20,9 +20,16 @@ const io = new Server(httpServer, {
 app.use("/", routes());
 
 io.on("connection", (socket) => {
-  console.log(socket.id);
-  socket.on("message", (m: string) => {
-    console.log(m);
+  socket.on("join_room", (room: string) => {
+    console.log("ROOM NAME: ", room);
+    socket.join(room);
+  });
+  socket.on("message", (content: string, username: string) => {
+    console.log("username: ", username);
+    console.log("content: ", content);
+    socket.to(username).emit("smessage", {
+      content,
+    });
   });
 });
 
