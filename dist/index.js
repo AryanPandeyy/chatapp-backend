@@ -17,7 +17,7 @@ app.use((0, cookie_parser_1.default)());
 const httpServer = (0, http_1.createServer)(app);
 const io = new socket_io_1.Server(httpServer, {
     cors: {
-        origin: "http://localhost:5173",
+        origin: "https://chatapp-frontend-tau-sooty.vercel.app/",
     },
 });
 app.use("/", (0, routes_1.routes)());
