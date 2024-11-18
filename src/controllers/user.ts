@@ -8,3 +8,7 @@ export const getUsers = async (req: Request, res: Response) => {
   const result = await users.toArray();
   res.status(200).send(result);
 };
+
+export const hello = (req: Request, res: Response) => {
+  res.status(200).send("Hello World");
+}

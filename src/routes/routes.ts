@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { signup } from "../controllers/signup";
 import { login, logout } from "../controllers/login";
-import { getUsers } from "../controllers/user";
+import { getUsers, hello } from "../controllers/user";
 
 const routes = () => {
   const router = Router();
@@ -9,6 +9,7 @@ const routes = () => {
   router.post("/login", login);
   router.post("/logout", logout);
   router.get("/getUsers", getUsers);
+  router.get("/", hello);
   return router;
 };
 export { routes };
