@@ -24,12 +24,12 @@ io.on("connection", (socket) => {
     console.log("ROOM NAME: ", room);
     socket.join(room);
   });
-  socket.on("message", (content: string, username: string) => {
-    console.log("username: ", username);
-    console.log("content: ", content);
-    socket.to(username).emit("smessage", {
+  socket.on("message", (content: string, to: string, from: string) => {
+    socket.to(to).emit("smessage", {
       content,
-    });
+      from,
+    }
+    );
   });
 });
 
