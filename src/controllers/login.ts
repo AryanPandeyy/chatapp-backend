@@ -24,10 +24,3 @@ export const login = async (req: Request, res: Response) => {
 		}
 	}
 };
-
-export const logout = async (req: Request, res: Response) => {
-	const { token } = req.body;
-	// const SECRET_KEY = process.env.SECRET_KEY || "";
-	const { username } = jwt.decode(token);
-	res.cookie("token", "").send("Logout sucessfull");
-};
